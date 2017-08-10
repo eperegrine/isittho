@@ -1,3 +1,5 @@
+const dodieYellow = "#fef65b"
+
 $(document).ready(function () {
     console.log("ready");
 
