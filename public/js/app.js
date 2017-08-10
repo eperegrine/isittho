@@ -10,6 +10,15 @@ $(document).ready(function () {
                 background: dodieYellow
             },
             score: 0
+        },
+        methods: {
+            isIt: function () {
+                return this.bgc.background == dodieYellow;
+            },
+            choose: function (userThinksItIs) {
+                const userCorrect = userThinksItIs == this.isIt();
+                console.log(userCorrect);
+            }
         }
     });
 });
