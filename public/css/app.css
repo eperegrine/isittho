@@ -3,3 +3,9 @@
     /* height: 400; */
     width: 100%;
 }
+
+.yellow_container {
+    height: 200px;
+    width: 100%;
+    margin-bottom: 100px;
+}

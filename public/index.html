@@ -15,13 +15,27 @@
         <img class="top-image" src="https://pbs.twimg.com/profile_banners/44733150/1499454714/1500x500" alt="dodie you banner">
         <div id="app" class="container">
             <h1>Is It Tho! <small>A game about guessing the shade of yellow</small></h1>
-            {{message}}
             <div class="row">
                 <div class="col-md-8">
-                    YELLOW
+                    <div class="yellow_container" :style="[bgc]">
+
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    SCORING
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Score</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span>Score: </span> {{ score }} <br>
+                        </div>
+                    </div>
+
+                    <div class="btn-group btn-croup-justified" role="group" aria-label="...">
+                        <button type="button" class="btn btn-default">IT IS</button>
+                        <button type="button" class="btn btn-default">NAH M8</button>
+                    </div>
+
                 </div>
             </div>
         </div>
