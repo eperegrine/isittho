@@ -23,7 +23,8 @@ $(document).ready(function () {
             },
             amountCorrect: 0,
             total: 0,
-            choiceMessage: null
+            choiceMessage: null,
+            showCheat: false
         },
         methods: {
             isIt: function () {
@@ -31,9 +32,16 @@ $(document).ready(function () {
             },
             changeColour: function () {
                 var newColor = this.lastColour;
-                do {
-                    newColor = shades.randomElement();
-                } while (newColor == this.lastColour)
+                var isDodieYellowNow = !(this.lastColour == DODIE_YELLOW) 
+                    && Math.random() <= DODIE_YELLOW_CHANCE;
+
+                if (isDodieYellowNow)  {newColor = DODIE_YELLOW;}
+                else {
+                    do {
+                        newColor = shades.randomElement();
+                    } while (newColor == this.lastColour)
+                }
+                
                 this.bgc.background = newColor;
             },
             choose: function (userThinksItIs) {

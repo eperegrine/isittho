@@ -28,7 +28,11 @@
                         </div>
                         <div class="panel-body">
                             <span>Score: </span> {{ amountCorrect }}/{{ total }} <br>
-                            <span v-if="choiceMessage">You Were {{choiceMessage}}</span>
+                            <span v-if="choiceMessage">You Were {{choiceMessage}}</span> <br>
+                            <span>
+                                Dev Cheat: <input v-model="showCheat" type="checkbox">
+                                <span v-if="showCheat">{{ isIt() }}</span>
+                            </span>
                         </div>
                     </div>
 
