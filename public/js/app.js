@@ -2,14 +2,15 @@ Array.prototype.randomElement = function () {
     return this[Math.floor(Math.random() * this.length)]
 }
 
-const dodieYellow = "#fef65b"
-var shades = randomColor({hue: dodieYellow, count: 18})
+const DODIE_YELLOW = "#fef65b"
+const DODIE_YELLOW_CHANCE = 0.1;
+var shades = randomColor({hue: DODIE_YELLOW, count: 18})
 
-shades.push(dodieYellow);
+shades.push(DODIE_YELLOW);
 
 console.log(shades);
 
-lastColour = dodieYellow;
+lastColour = DODIE_YELLOW;
 
 $(document).ready(function () {
     console.log("ready");
@@ -18,14 +19,15 @@ $(document).ready(function () {
         el: '#app',
         data: {
             bgc: {
-                background: dodieYellow
+                background: DODIE_YELLOW
             },
-            score: 0,
+            amountCorrect: 0,
+            total: 0,
             choiceMessage: null
         },
         methods: {
             isIt: function () {
-                return this.bgc.background == dodieYellow;
+                return this.bgc.background == DODIE_YELLOW;
             },
             changeColour: function () {
                 var newColor = this.lastColour;
@@ -38,7 +40,8 @@ $(document).ready(function () {
                 console.log(this.bgc.background);
                 const userCorrect = userThinksItIs == this.isIt();
                 this.choiceMessage = userCorrect ? "Correct" : "Wrong";
-                this.score += userCorrect ? 1 : -1;
+                this.total++;
+                this.amountCorrect += userCorrect ? 1 : 0;
                 this.lastColour = this.bgc.background;
                 this.changeColour();
             }
