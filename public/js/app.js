@@ -45,11 +45,16 @@ $(document).ready(function () {
                 this.bgc.background = newColor;
             },
             choose: function (userThinksItIs) {
-                console.log(this.bgc.background);
                 const userCorrect = userThinksItIs == this.isIt();
                 this.choiceMessage = userCorrect ? "Correct" : "Wrong";
                 this.total++;
                 this.amountCorrect += userCorrect ? 1 : 0;
+
+                if (this.amountCorrect == 6 && this.total == 10) {
+                    console.log("Ayyy");
+                    alert("Dodie has a song for this score I swear...");
+                }
+
                 this.lastColour = this.bgc.background;
                 this.changeColour();
             }
