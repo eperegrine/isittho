@@ -1,4 +1,13 @@
+Array.prototype.randomElement = function () {
+    return this[Math.floor(Math.random() * this.length)]
+}
+
 const dodieYellow = "#fef65b"
+var shades = randomColor({hue: dodieYellow, count: 18})
+
+shades.push(dodieYellow);
+
+console.log(shades);
 
 $(document).ready(function () {
     console.log("ready");
@@ -15,9 +24,13 @@ $(document).ready(function () {
             isIt: function () {
                 return this.bgc.background == dodieYellow;
             },
+            changeColour: function () {
+                this.bgc.background = shades.randomElement();
+            },
             choose: function (userThinksItIs) {
                 const userCorrect = userThinksItIs == this.isIt();
-                console.log(userCorrect);
+                this.score += userCorrect ? 1 : -1;
+                this.changeColour();
             }
         }
     });
